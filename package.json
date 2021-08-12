@@ -1,0 +1,12 @@
+{
+  "name": "nodejs_masterclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "staging": "NODE_ENV=staging node index.js",
+    "production": "NODE_ENV=production node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
