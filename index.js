@@ -1,6 +1,6 @@
 /**
  * Primary file for the API
- * 
+ *
 */
 
 // Libryres
@@ -33,7 +33,7 @@ var httpsServer = https.createServer(options, function (req, res) {
 
 // start the https server
 httpsServer.listen(config.httpsPort, function () {
-  console.log(`Server listening on http://localhost:${config.httpsPort} in ${config.envName} mode.`);
+  console.log(`Server listening on https://localhost:${config.httpsPort} in ${config.envName} mode.`);
 });
 
 
@@ -48,7 +48,7 @@ var unifiedServer = function (req, res) {
   var trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
   // Get the query string as an object
-  var queryStringObject = parsedUrl.searchParams
+  var queryStringObject = parsedUrl.searchParams;
 
   // Get the HTTP method
   var method = req.method.toUpperCase();
@@ -75,7 +75,7 @@ var unifiedServer = function (req, res) {
       method,
       headers,
       'payload': buffer
-    }
+    };
 
     // Route the request to the handler specified in the router
     chosenHandler(data, function (statusCode, payload) {
@@ -91,7 +91,6 @@ var unifiedServer = function (req, res) {
       // Return the response
       res.setHeader('Content-Type', 'application/json');
       res.writeHead(statusCode);
-      //res.setHeader("Content-type", "Application/json");
       res.end(payloadString)
 
       // Log the request
@@ -119,4 +118,3 @@ handlers.notFound = function (data, callback) {
 var router = {
   'sample': handlers.sample
 };
-
