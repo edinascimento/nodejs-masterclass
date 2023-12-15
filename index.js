@@ -114,7 +114,12 @@ handlers.notFound = function (data, callback) {
   callback(404);
 }
 
+// Ping Handler
+handlers.ping = function(data, callback) {
+  callback(200, {status: 'running'})
+}
+
 // Define a request router
 var router = {
-  'sample': handlers.sample
+  'ping': handlers.ping
 };
