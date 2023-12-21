@@ -6,9 +6,12 @@
 // Libryres
 var http = require("http");
 var https = require("https");
-var StringDecoder = require("string_decoder").StringDecoder;
-var config = require("./config");
 var fs = require("fs");
+var StringDecoder = require("string_decoder").StringDecoder;
+
+var config = require("./config");
+var handlers = require('./lib/handlers')
+
 
 // Instantiate the HTTP server
 var httpServer = http.createServer(function (req, res) {
@@ -104,26 +107,8 @@ var unifiedServer = function (req, res) {
   });
 };
 
-// Define the handlers
-var handlers = {};
 
-// Sample handler
-handlers.sample = function (data, callback) {
-  // Callback a http status code, and a payload
-  callback(406, { ping: "pong" });
-};
-
-// NotFound handler
-handlers.notFound = function (data, callback) {
-  callback(404);
-};
-
-// Ping Handler
-handlers.ping = function (data, callback) {
-  callback(200, { status: "running" });
-};
-
-// Define a request router
 var router = {
-  ping: handlers.ping,
+  'ping': handlers.ping,
+  'users': handlers.users
 };
