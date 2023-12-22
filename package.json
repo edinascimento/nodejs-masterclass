@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "staging": "NODE_ENV=staging node index.js",
-    "production": "NODE_ENV=production node index.js"
+    "stg": "NODE_ENV=staging node index.js",
+    "prd": "NODE_ENV=production node index.js"
   },
   "author": "",
   "license": "ISC"
